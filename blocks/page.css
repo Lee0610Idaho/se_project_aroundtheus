@@ -19,6 +19,12 @@
   margin: 0 auto;
 }
 
+@media screen and (max-width: 1000px) {
+  .page__section {
+    max-width: 800px;
+  }
+}
+
 @media screen and (max-width: 620px) {
   .page__section {
     max-width: 282px;

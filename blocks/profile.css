@@ -28,7 +28,7 @@
 
 .profile__edit-button:hover {
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .profile__add-button {
@@ -52,6 +52,7 @@
   font-weight: 500;
   grid-area: title;
   margin: 0;
+  text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   max-width: 373px;
@@ -75,6 +76,21 @@
   object-fit: cover;
   background-position: center;
   margin-right: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+  .profile {
+    max-width: 800px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 800px) {
+  .profile {
+    max-width: 580px;
+  }
+  .profile__add-button {
+    margin-left: 20px;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -125,7 +141,7 @@
   }
 
   .profile__edit-button {
-    margin-left: -45px;
+    margin-left: 0px;
     width: 18px;
     height: 18px;
   }
