@@ -53,15 +53,15 @@ function handleProfileEditSubmit(e) {
 }
 
 /*Create a Card based off template and data */
-function GetCardElement(data) {
-  const CardElement = cardTemplate.cloneNode(true);
-  const CardImageEl = CardElement.querySelector(".cards__image");
-  const CardTitleEl = CardElement.querySelector(".cards__title");
-  const CardImage = CardElement.querySelector(".cards__image");
-  CardImage.src = data.link;
-  CardImage.alt = data.name;
-  CardTitleEl.textContent = data.name;
-  return CardElement;
+function getCardElement(data) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageEl = cardElement.querySelector(".cards__image");
+  const cardTitleEl = cardElement.querySelector(".cards__title");
+  const cardImage = cardElement.querySelector(".cards__image");
+  cardImage.src = data.link;
+  cardImage.alt = data.name;
+  cardTitleEl.textContent = data.name;
+  return cardElement;
 }
 
 /* Open Modal Form*/
@@ -78,6 +78,6 @@ profileCloseButton.addEventListener("click", closePopup);
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 initialCards.forEach((cardData) => {
-  const CardElement = GetCardElement(cardData);
-  cardListEl.prepend(CardElement);
+  const cardElement = getCardElement(cardData);
+  cardListEl.prepend(cardElement);
 });

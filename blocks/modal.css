@@ -60,6 +60,7 @@
   border: none;
   border-bottom: solid 1px rgba(0, 0, 0, 0.2);
   font-size: 14px;
+  line-height: 16.94px;
 }
 
 .modal__button {
@@ -80,13 +81,14 @@
   .modal__heading {
     font-size: 18px;
     line-height: 21.78px;
+    font-weight: 900;
   }
 
   .modal__close {
     width: 26px;
     height: 26px;
     bottom: calc(100% + 13.62px);
-    left: calc(90% + 10px);
+    left: calc(90%);
   }
 
   .modal__form {
@@ -95,9 +97,13 @@
     line-height: 16.94px;
   }
 
-  .modal__ button {
+  .modal__button {
     height: 46px;
-    margin-top: 15px;
+    margin-top: 15px; /* Also includes the gap from modal__form */
     border-radius: 2px;
+    font-size: 14px;
+    line-height: 16.94px;
+    padding: 0;
+    margin-bottom: 0;
   }
 }
