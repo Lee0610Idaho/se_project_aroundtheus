@@ -35,6 +35,7 @@ const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const addNewCardButton = document.querySelector(".profile__add-button");
 const addNewCardCloseButton = addCardModal.querySelector(".modal__close");
+
 //Forms
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const addCardForm = addCardModal.querySelector("#add-card-form");
@@ -68,6 +69,7 @@ function handleProfileEditSubmit(e) {
   closePopup(profileEditModal);
 }
 
+/* Function to generate cards on screen */
 function renderCard(cardData, cardList) {
   const cardElement = getCardElement(cardData);
   cardList.prepend(cardElement);
@@ -87,6 +89,18 @@ function getCardElement(data) {
   const cardImageEl = cardElement.querySelector(".cards__image");
   const cardTitleEl = cardElement.querySelector(".cards__title");
   const cardImage = cardElement.querySelector(".cards__image");
+  const likeButton = cardElement.querySelector(".cards__like-button");
+  //find delete button
+
+  //add event listener to remove card
+  //cardElement.remove();
+
+  //add event listener to cardImage Element
+  //openModal with previewImageModal
+
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("cards__like-button_active");
+  });
   cardImage.src = data.link;
   cardImage.alt = data.name;
   cardTitleEl.textContent = data.name;
@@ -117,10 +131,12 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 /*Edit Add Card Save Button */
 addCardForm.addEventListener("submit", handleAddCardSubmit);
 
-// initialCards.forEach((cardData) => {
-//   //const cardElement = getCardElement(cardData);
-//   // cardListEl.prepend(cardElement);
-//   renderCard(cardData, cardListEl);
-// });
-
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+
+// const likeButtons = document.querySelectorAll(".cards__like-button");
+
+// likeButtons.forEach((likeButton) => {
+//   likeButton.addEventListener("click", () => {
+//     likeButton.classList.toggle("cards__like-button_active");
+//   });
+// });

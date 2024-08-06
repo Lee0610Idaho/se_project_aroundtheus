@@ -55,6 +55,10 @@
   border: none;
 }
 
+.cards__like-button_active {
+  background-image: url(../images/like-active.svg);
+}
+
 .cards__like-button:hover {
   opacity: 0.5;
   cursor: pointer;
