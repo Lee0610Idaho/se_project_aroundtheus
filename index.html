@@ -67,7 +67,7 @@
     <!--Add card modal-->
     <div class="modal" id="add-card-modal">
       <div class="modal__container">
-        <button class="modal__close" id="profile-close-button"></button>
+        <button class="modal__close modal_close-image"></button>
         <p class="modal__heading">New place</p>
         <form class="modal__form" id="add-card-form">
           <input
@@ -88,9 +88,19 @@
         </form>
       </div>
     </div>
+    <!--Card Image Modal-->
+    <div class="modal" id="card-image-modal">
+      <div class="modal__card-container">
+        <button class="modal__close modal__close-image"></button>
+        <img src="" alt="" class="modal__image" />
+        <p class="modal__image-name"></p>
+      </div>
+    </div>
+    <!--Card Template-->
     <template id="card-template">
       <li class="cards__card">
         <img src="" alt="" class="cards__image" />
+        <button class="cards__delete-button" type="button"></button>
         <div class="cards__description">
           <h2 class="cards__title"></h2>
           <button class="cards__like-button" type="button"></button>

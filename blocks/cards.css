@@ -24,6 +24,10 @@
   border-radius: 10px 10px 0 0;
 }
 
+.cards__image:hover {
+  cursor: pointer;
+}
+
 .cards__description {
   display: flex;
   background-color: white;
@@ -46,6 +50,21 @@
   margin: 0;
   max-width: 219px;
 }
+.cards__delete-button {
+  z-index: 10;
+  position: absolute;
+  top: 18px;
+  left: 249px;
+  background: url(../images/trash.svg) center no-repeat;
+  border: none;
+  width: 18px;
+  height: 19.3px;
+}
+
+.cards__delete-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
 
 .cards__like-button {
   background: transparent url(../images/like-inactive.svg) center no-repeat;
@@ -60,7 +79,7 @@
 }
 
 .cards__like-button:hover {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: pointer;
 }
 

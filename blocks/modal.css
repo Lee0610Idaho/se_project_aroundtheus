@@ -25,6 +25,15 @@
   box-sizing: border-box;
 }
 
+/* container specifically for image modal */
+.modal__card-container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
 .modal__close {
   border: none;
   background-color: transparent;
@@ -71,6 +80,21 @@
   color: #fff;
 }
 
+.modal__image-name {
+  width: 291px;
+  height: 12px;
+  font-size: 12px;
+  line-height: 14.52px;
+  font-weight: 400;
+}
+
+.modal__image {
+  max-width: 75vw;
+  max-height: 75vh;
+  object-fit: cover;
+  margin: auto;
+}
+
 @media screen and (max-width: 530px) {
   .modal__container {
     width: 282px;
@@ -89,6 +113,13 @@
     height: 26px;
     bottom: calc(100% + 13.62px);
     left: calc(90%);
+  }
+
+  .modal__close-image {
+    width: 30px;
+    height: 30px;
+    bottom: calc(100% + 3px);
+    left: calc(100% + 3px);
   }
 
   .modal__form {

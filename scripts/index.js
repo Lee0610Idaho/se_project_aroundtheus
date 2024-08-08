@@ -24,13 +24,21 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
-
+//Profile Edit Modal
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
+
+//Add Card Modal
 const addCardModal = document.querySelector("#add-card-modal");
 const profileCloseButton = profileEditModal.querySelector(
   "#profile-close-button"
 );
+//Preview Picture Modal
+const cardImageModal = document.querySelector("#card-image-modal");
+const cardImageCloseButton = cardImageModal.querySelector(".modal__close");
+const cardImagePhoto = cardImageModal.querySelector(".modal__image");
+const cardImageName = cardImageModal.querySelector(".modal__image-name");
+
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const addNewCardButton = document.querySelector(".profile__add-button");
@@ -47,6 +55,7 @@ const profileDescriptionInput = document.querySelector(
 const cardTitleInput = addCardForm.querySelector(".modal__field_type_title");
 const cardUrlInput = addCardForm.querySelector(".modal__field_type_url");
 
+//Card List Element and Card Template
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
@@ -90,23 +99,32 @@ function getCardElement(data) {
   const cardTitleEl = cardElement.querySelector(".cards__title");
   const cardImage = cardElement.querySelector(".cards__image");
   const likeButton = cardElement.querySelector(".cards__like-button");
-  //find delete button
+  const deleteButton = cardElement.querySelector(".cards__delete-button");
 
-  //add event listener to remove card
-  //cardElement.remove();
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
 
   //add event listener to cardImage Element
   //openModal with previewImageModal
 
+  cardImageEl.addEventListener("click", () => renderCardImageModal(data));
+
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("cards__like-button_active");
   });
-  cardImage.src = data.link;
-  cardImage.alt = data.name;
+  cardImageEl.src = data.link;
+  cardImageEl.alt = data.name;
   cardTitleEl.textContent = data.name;
   return cardElement;
 }
 
+function renderCardImageModal(data) {
+  cardImagePhoto.src = data.link;
+  cardImagePhoto.alt = data.name;
+  cardImageName.textContent = data.name;
+  openModal(cardImageModal);
+}
 /* Open Profile Modal Form*/
 profileEditButton.addEventListener("click", () => {
   openModal(profileEditModal);
@@ -132,6 +150,11 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addCardForm.addEventListener("submit", handleAddCardSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+
+//Close Card Image Modal
+cardImageCloseButton.addEventListener("click", () =>
+  closePopup(cardImageModal)
+);
 
 // const likeButtons = document.querySelectorAll(".cards__like-button");
 
