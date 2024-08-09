@@ -120,7 +120,7 @@
   }
 
   /* Close button for image modal stays on corner of modal*/
-  .modal__close_type_image {
+  .modal__close-image {
     width: 30px;
     height: 30px;
     bottom: calc(100% + 3px);
