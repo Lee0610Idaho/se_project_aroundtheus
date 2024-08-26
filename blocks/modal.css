@@ -65,7 +65,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 54px;
-  gap: 6px;
+  gap: 36px;
 }
 
 .modal__field {
@@ -101,7 +101,14 @@
 }
 
 .modal__error {
-  color: red;
+  color: #ff0000;
+  width: 164px;
+  height: 12px;
+  line-height: 14.5px;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 5px;
+  position: relative;
 }
 
 .modal__input_type_error {
@@ -109,11 +116,11 @@
 }
 
 .modal__button_disabled {
-  margin-top: 3px;
   border-color: rgb(187, 187, 187);
   background-color: #fff;
   color: rgb(187, 187, 187);
 }
+
 @media screen and (max-width: 530px) {
   .modal__container {
     width: 282px;

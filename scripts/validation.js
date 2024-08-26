@@ -30,7 +30,7 @@ function disableButton(submitButton, inactiveButtonClass) {
 }
 
 function enableButton(submitButton, inactiveButtonClass) {
-  submitButton.classList.remove("modal__button_disabled");
+  submitButton.classList.remove(inactiveButtonClass);
   submitButton.disabled = false;
 }
 
@@ -44,7 +44,7 @@ function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
 function setEventListeners(formEl, options) {
   const { inputSelector } = options;
   const inputEls = Array.from(formEl.querySelectorAll(inputSelector));
-  const submitButton = formEl.querySelector(".modal__button");
+  const submitButton = formEl.querySelector(options.submitButtonSelector);
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
       checkInputValidity(formEl, inputEl, options);
@@ -58,12 +58,8 @@ function enableValidation(options) {
   formEls.forEach((formEl) => {
     formEl.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      //Check form's id to tell if we need to disable add card submit button upon submitting
-      //Prevent submitting an empty card
-      if (formEl.id === "add-card-form") {
-        const submitButton = formEl.querySelector(options.submitButtonSelector);
-        disableButton(submitButton, options.inactiveButtonClass);
-      }
+      const submitButton = formEl.querySelector(options.submitButtonSelector);
+      disableButton(submitButton, options.inactiveButtonClass);
     });
 
     setEventListeners(formEl, options);
