@@ -66,11 +66,13 @@ const cardTemplate =
 // Function Code to close an inputted modal
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscCloseModal);
 }
 
 //Function to open Modal
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscCloseModal);
 }
 
 // Function to handle the submit button of Edit Profile
@@ -158,3 +160,25 @@ initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 cardImageCloseButton.addEventListener("click", () =>
   closePopup(cardImageModal)
 );
+
+//function to read for escape key and if so close modal
+function handleEscCloseModal(event) {
+  if (event.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    if (openedModal) {
+      closePopup(openedModal);
+    }
+  }
+}
+
+//Applies for all modals
+//Upon clicking said modal overlay, close said modal
+const modalOverlays = document.querySelectorAll(".modal");
+
+modalOverlays.forEach(function (overlay) {
+  overlay.addEventListener("click", function (event) {
+    if (event.target === overlay) {
+      closePopup(overlay);
+    }
+  });
+});

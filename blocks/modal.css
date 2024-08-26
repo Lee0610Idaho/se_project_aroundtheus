@@ -65,7 +65,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 54px;
-  gap: 29.74px;
+  gap: 6px;
 }
 
 .modal__field {
@@ -77,8 +77,9 @@
 }
 
 .modal__button {
-  margin-top: 18.26px;
-  margin-bottom: 36.51px;
+  /* margin-top: 18.26px; */
+  /* margin-bottom: 36.51px; */
+  margin-top: 45px;
   height: 50.15px;
   background-color: #000;
   color: #fff;
@@ -99,6 +100,20 @@
   margin: auto;
 }
 
+.modal__error {
+  color: red;
+}
+
+.modal__input_type_error {
+  border-bottom-color: red;
+}
+
+.modal__button_disabled {
+  margin-top: 3px;
+  border-color: rgb(187, 187, 187);
+  background-color: #fff;
+  color: rgb(187, 187, 187);
+}
 @media screen and (max-width: 530px) {
   .modal__container {
     width: 282px;
@@ -129,7 +144,7 @@
 
   .modal__form {
     margin-top: 75px;
-    gap: 30px;
+    /* gap: 30px; */
     line-height: 16.94px;
   }
 
