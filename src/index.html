@@ -7,30 +7,32 @@
       initial-scale=1.0"
       name="viewport"
     />
-    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
     <title>Around the U.S</title>
-    <link href="./pages/index.css" rel="stylesheet" />
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
-        <img src="./images/logo.svg" alt="Image of logo" class="header__logo" />
+        <img
+          src="<%=require('./images/logo.svg')%>"
+          alt="Image of logo"
+          class="header__logo"
+        />
       </header>
       <main class="content">
         <section class="profile page__section">
           <img
-            src="./images/Jacques-Cousteau.jpg"
+            src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="Profile image of Jacques Cousteau"
             class="profile__image"
           />
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
+            <h1 class="profile__title" id="profile_name">Jacques Cousteau</h1>
             <button
               class="profile__edit-button"
               id="profile-edit-button"
               type="button"
             ></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description" id="profile_job">Explorer</p>
           </div>
           <button class="profile__add-button" type="button"></button>
         </section>
@@ -39,7 +41,7 @@
         </section>
       </main>
       <footer class="footer page__section">
-        <p class="footer__copyright">&copy; 2022 Around The U.S.</p>
+        <p class="footer__copyright">&copy; 2024 Around The U.S.</p>
       </footer>
     </div>
     <!--Edit Profile Modal-->
@@ -47,7 +49,7 @@
       <div class="modal__container">
         <button class="modal__close" id="profile-close-button"></button>
         <p class="modal__heading">Edit Profile</p>
-        <form class="modal__form">
+        <form class="modal__form" name="profile-form">
           <label for="input" class="modal__label">
             <input
               type="text"
@@ -84,7 +86,7 @@
       <div class="modal__container">
         <button class="modal__close"></button>
         <p class="modal__heading">New place</p>
-        <form class="modal__form" id="add-card-form">
+        <form class="modal__form" id="add-card-form" name="card-form">
           <label for="input" class="modal__label">
             <input
               type="text"
@@ -141,7 +143,5 @@
         </div>
       </li>
     </template>
-    <script src="./pages/index.js" type="module"></script>
-    <!-- <script src="./scripts/validation.js"></script> -->
   </body>
 </html>
