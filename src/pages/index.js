@@ -66,8 +66,8 @@ const userInfo = new UserInfo({
 });
 
 //Profile Popup
-const editFormPopup = new PopupWithForm("#profile-edit-modal", () => {
-  userInfo.setUserInfo(profileTitleInput.value, profileDescriptionInput.value);
+const editFormPopup = new PopupWithForm("#profile-edit-modal", (values) => {
+  userInfo.setUserInfo(values.profile__title, values.profile__description);
   editFormPopup.close();
 });
 
