@@ -94,7 +94,6 @@ const addCardFormPopup = new PopupWithForm("#add-card-modal", (formData) => {
   renderCard(cardData, cardListEl);
   addCardFormPopup.close();
   addCardForm.reset();
-  console.log(formValidators);
   formValidators["card-form"].disableButton();
 });
 
