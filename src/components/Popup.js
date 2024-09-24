@@ -35,7 +35,5 @@ export default class Popup {
         this.close();
       }
     });
-    // close on esc
-    document.addEventListener("keydown", (evt) => this._handleEscClose(evt));
   }
 }

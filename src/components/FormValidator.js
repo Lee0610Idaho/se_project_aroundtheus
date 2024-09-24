@@ -56,7 +56,7 @@ export default class FormValidator {
     //Disable Button
     if (hasInvalidInput) {
       this.disableButton();
-      return (this._submitButtonEl.disabled = true);
+      return; //so it doesn't enable button below
     }
 
     //Enable Button
@@ -74,6 +74,7 @@ export default class FormValidator {
   //Function to be called for disabling button in toggle button state and for add card form submission
   disableButton() {
     this._submitButtonEl.classList.add(this._options.inactiveButtonClass);
+    this._submitButtonEl.disabled = true;
   }
   //Called upon submission of a form
   resetValidation() {

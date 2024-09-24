@@ -29,11 +29,6 @@ function createCard(data) {
   return cardElement.getView();
 }
 
-function renderCard(data, cardListEl) {
-  const card = createCard(data);
-  cardListEl.prepend(card);
-}
-
 //Set up From Validators
 const formValidators = {};
 
@@ -55,16 +50,16 @@ const cardSection = new Section(
   {
     items: initialCards,
     renderer: (data) => {
-      const cardEl = new Card(data, cardTemplate, (imgData) => {
-        imagePopup.open(imgData);
-      });
-      cardSection.addItem(cardEl.getView());
+      // Create a new card
+      const cardElement = createCard(data);
+
+      // Display each card
+      cardSection.addItem(cardElement);
     },
   },
   cardListEl
 );
-cardSection.renderItems(initialCards);
-
+cardSection.renderItems();
 const userInfo = new UserInfo({
   profileName: "#profile_name",
   profileJob: "#profile_job",
@@ -72,7 +67,7 @@ const userInfo = new UserInfo({
 
 //Profile Popup
 const editFormPopup = new PopupWithForm("#profile-edit-modal", () => {
-  userInfo.setUserInfo();
+  userInfo.setUserInfo(profileTitleInput.value, profileDescriptionInput.value);
   editFormPopup.close();
 });
 
@@ -88,10 +83,8 @@ profileEditButton.addEventListener("click", () => {
 
 //Add Popup for adding Cards
 const addCardFormPopup = new PopupWithForm("#add-card-modal", (formData) => {
-  const name = cardTitleInput.value;
-  const link = cardUrlInput.value;
-  const cardData = { name, link };
-  renderCard(cardData, cardListEl);
+  const newCard = createCard(formData);
+  cardSection.addItem(newCard);
   addCardFormPopup.close();
   addCardForm.reset();
   formValidators["card-form"].disableButton();
