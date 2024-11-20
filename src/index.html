@@ -20,19 +20,18 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="Profile image of Jacques Cousteau"
-            class="profile__image"
-          />
+          <div class="profile__image-wrapper">
+            <img class="profile__image" />
+            <div class="profile__image-overlay"></div>
+          </div>
           <div class="profile__info">
-            <h1 class="profile__title" id="profile_name">Jacques Cousteau</h1>
+            <h1 class="profile__title" id="profile_name"></h1>
             <button
               class="profile__edit-button"
               id="profile-edit-button"
               type="button"
             ></button>
-            <p class="profile__description" id="profile_job">Explorer</p>
+            <p class="profile__description" id="profile_job"></p>
           </div>
           <button class="profile__add-button" type="button"></button>
         </section>
@@ -130,6 +129,27 @@
         <button class="modal__close modal__close-image"></button>
         <img src="" alt="" class="modal__image" />
         <p class="modal__image-name"></p>
+      </div>
+    </div>
+    <!-- Change Profile Image Modal -->
+    <div class="modal" id="avatar-modal">
+      <div class="modal__container">
+        <button type="button" class="modal__close"></button>
+        <p class="modal__heading">Change profile picture</p>
+        <form class="modal__form" id="avatar-form" name="avatar-form">
+          <label for="input" class="modal__label">
+            <input
+              required
+              type="url"
+              class="modal__field"
+              id="avatar"
+              name="avatar"
+              placeholder="Profile picture URL"
+            />
+            <span cclass="modal__error" id="avatar-error"></span>
+          </label>
+          <button type="submit" class="modal__button">Save</button>
+        </form>
       </div>
     </div>
     <!--Card Template-->
