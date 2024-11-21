@@ -6,7 +6,6 @@ export default class Card {
     // Obtain the card's elements
     this._name = data.name;
     this._link = data.link;
-    this._cardOwnerId = data.owner._id;
     this._cardId = data._id;
     this._cardLikes = data.likes;
 
