@@ -1,8 +1,7 @@
 export default class Card {
   constructor(
     { data, handleImageClick, handleDeleteClick, handleLikeClick },
-    cardSelector,
-    userId
+    cardSelector
   ) {
     // Obtain the card's elements
     this._name = data.name;
@@ -13,9 +12,6 @@ export default class Card {
 
     // Find the card template
     this._cardSelector = cardSelector;
-
-    // Find the user id
-    this._userId = userId;
 
     // Functions
     this._handleImageClick = handleImageClick;
@@ -52,11 +48,6 @@ export default class Card {
 
   // Change the like icon based on its status
   _renderLikes() {
-    // if (!this.isLiked()) {
-    //   this._likeButton.classList.add("cards__like-button_active");
-    // } else {
-    //   this._likeButton.classList.remove("cards__like-button_active");
-    // }
     this._cardElement
       .querySelector(".cards__like-button")
       .classList.toggle("cards__like-button_active");
@@ -71,7 +62,7 @@ export default class Card {
     }
   }
 
-  _handleDeleteCard() {
+  deleteCard() {
     this._cardElement.remove();
     this._cardElement = null;
   }

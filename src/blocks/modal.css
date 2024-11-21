@@ -61,6 +61,14 @@
   height: 23px;
 }
 
+/* For Delete Confirmation Modal */
+.modal__title {
+  font-size: 24px;
+  color: #000000;
+  font-weight: 900;
+  margin: 34px 36px 21px 36px;
+}
+
 .modal__form {
   display: flex;
   flex-direction: column;
@@ -82,14 +90,31 @@
   margin-top: 30px;
 }
 
-.modal__button {
+/* .modal__button {
   /* margin-top: 18.26px; */
-  /* margin-bottom: 36.51px; */
-  margin-top: 45px;
+/* margin-bottom: 36.51px; */
+/* margin-top: 45px;
   line-height: 22px;
   height: 50.15px;
   background-color: #000;
-  color: #fff;
+  color: #fff; */
+
+/* } */
+
+.modal__button {
+  background: #000000;
+  border-radius: 2px;
+  width: 83%;
+  height: 50px;
+  font-family: "Inter", Arial, sans-serif;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+  margin: 17px 36px 36px 36px;
+  border-style: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .modal__image-name {

@@ -36,7 +36,7 @@ const avatarForm = document.forms["avatar-form"];
 const avatarFormButton = avatarForm.querySelector(".modal__button");
 const deleteConfirmButton = document.querySelector("#delete-card-button");
 
-function createCard(data, userId, active) {
+function createCard(data, active) {
   const cardElement = new Card(
     {
       data,
@@ -102,8 +102,7 @@ function createCard(data, userId, active) {
         }
       },
     },
-    cardTemplate,
-    userId
+    cardTemplate
   );
 
   // Display the card
@@ -150,7 +149,6 @@ const deletePopup = new PopupWithConfirmation("#delete-modal");
 deletePopup.setEventListeners();
 
 let cardSection;
-let userId;
 
 const userInfo = new UserInfo(profileTitle, profileDescription, profileImage);
 
@@ -158,7 +156,6 @@ api
   .getAppInfo()
   .then(([cards, userData]) => {
     // Find the user id
-    userId = userData._id;
     userInfo.setUserInfo(userData.name, userData.about);
     userInfo.setUserImage(userData.avatar);
 
@@ -169,13 +166,12 @@ api
         renderer: (card) => {
           // Create a new card
           console.log(cards);
-          const cardElement = createCard(card, userId, card.isLiked);
+          const cardElement = createCard(card, card.isLiked);
           // Display each card
           cardSection.addItem(cardElement);
         },
       },
-      cardListEl,
-      userId
+      cardListEl
     );
 
     // Render the entire list of cards on the page
@@ -220,7 +216,7 @@ const addCardFormPopup = new PopupWithForm("#add-card-modal", (formData) => {
   api
     .addNewCard(formData)
     .then((formData) => {
-      const newCard = createCard(formData, userId);
+      const newCard = createCard(formData);
       cardSection.addItem(newCard);
     })
     .then(() => {
