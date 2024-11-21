@@ -42,7 +42,7 @@ function createCard(data, active) {
       data,
       handleImageClick: (imageData) => {
         // Open image popup on click
-        cardPreviewPopup.open(imageData);
+        imagePopup.open(imageData);
       },
       handleDeleteClick: () => {
         // Set the deletion action
@@ -54,49 +54,37 @@ function createCard(data, active) {
           api
             .deleteCard(data._id)
             .then(() => {
-              // Delete card from page
               cardElement.deleteCard();
-
-              // Close the confirmation popup
               deletePopup.close();
             })
             .catch((err) => {
-              // If the server returns an error, reject the promise
               console.error(`Error: ${err.status}`);
             })
             .finally(() => {
-              // Restore button text
               setSubmitButtonText(deleteConfirmButton, "Yes");
             });
         });
-
-        // Open confirmation popup on click
         deletePopup.open();
       },
       handleLikeClick: () => {
-        // If the user has liked the card, remove the like; vice versa
         if (cardElement.isLiked()) {
           // Remove like from the server if user has already liked the card
           api
             .removeLike(data._id)
             .then((card) => {
-              // Update like count
+              // Update like status
               cardElement.setLikes(false);
             })
             .catch((err) => {
-              // If the server returns an error, reject the promise
               console.error(`Error: ${err.status}`);
             });
         } else {
-          // Add like to the server if user has not liked the card
           api
             .addLike(data._id)
             .then((card) => {
-              // Update like count
               cardElement.setLikes(true);
             })
             .catch((err) => {
-              // If the server returns an error, reject the promise
               console.error(`Error: ${err.status}`);
             });
         }
@@ -105,13 +93,11 @@ function createCard(data, active) {
     cardTemplate
   );
 
-  // Display the card
   return cardElement.getView(active);
-  //return cardElement;
 }
 
+//Function used when editing button text
 function setSubmitButtonText(buttonElement, text) {
-  // Set text of form button
   buttonElement.textContent = text;
 }
 
@@ -145,6 +131,7 @@ const imagePopup = new PopupWithImage("#card-image-modal");
 //initially closed
 imagePopup.close();
 
+//Create Delete Popup for Deleting a Card
 const deletePopup = new PopupWithConfirmation("#delete-modal");
 deletePopup.setEventListeners();
 
@@ -164,21 +151,16 @@ api
       {
         items: cards,
         renderer: (card) => {
-          // Create a new card
-          console.log(cards);
           const cardElement = createCard(card, card.isLiked);
-          // Display each card
           cardSection.addItem(cardElement);
         },
       },
       cardListEl
     );
 
-    // Render the entire list of cards on the page
     cardSection.renderItems(cards);
   })
   .catch((err) => {
-    // If the server returns an error, reject the promise
     console.error(`Error: ${err}`);
   });
 
@@ -209,7 +191,6 @@ profileEditButton.addEventListener("click", () => {
   editFormPopup.setEventListeners();
 });
 
-//Add Popup for adding Cards
 const addCardFormPopup = new PopupWithForm("#add-card-modal", (formData) => {
   setSubmitButtonText(addCreateButton, "Creating...");
 
