@@ -133,7 +133,7 @@
     </div>
     <!--  Modal Seeking Confirmation -->
     <div class="modal" id="delete-modal">
-      <div class="modal__container">
+      <div class="modal__container modal__container-delete">
         <button type="button" class="modal__close"></button>
         <h2 class="modal__heading">Are you sure?</h2>
         <button type="submit" class="modal__button" id="delete-card-button">
@@ -156,9 +156,11 @@
               name="avatar"
               placeholder="Profile picture URL"
             />
-            <span cclass="modal__error" id="avatar-error"></span>
+            <span class="modal__error" id="avatar-error"></span>
           </label>
-          <button type="submit" class="modal__button">Save</button>
+          <button type="submit" class="modal__button modal__button-avatar">
+            Save
+          </button>
         </form>
       </div>
     </div>
