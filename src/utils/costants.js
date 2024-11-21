@@ -60,7 +60,7 @@ export const cardImageModal = document.querySelector("#card-image-modal");
 export const cardImagePhoto = cardImageModal.querySelector(".modal__image");
 export const cardImageName = cardImageModal.querySelector(".modal__image-name");
 
-
+export const profileImage = document.querySelector(".profile__image");
 
 //Validation Settings
 export const options = {
