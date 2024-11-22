@@ -98,18 +98,21 @@
 .modal__button {
   background: #000000;
   border-radius: 2px;
-  width: 83%;
+
   height: 50px;
   color: #ffffff;
   font-weight: 400;
   font-size: 18px;
   text-align: center;
-  margin: 17px 36px 36px 36px;
+  margin-top: 48px;
   border-style: none;
   padding: 0;
   cursor: pointer;
 }
 
+.modal__button-delete {
+  width: 100%;
+}
 .modal__button-avatar {
   margin: 68px 36px 36px 36px;
 }
@@ -158,6 +161,10 @@
     padding: 22px;
   }
 
+  .modal__container-delete {
+    width: 83%;
+    height: 120px;
+  }
   .modal__heading {
     font-size: 18px;
     line-height: 21.78px;

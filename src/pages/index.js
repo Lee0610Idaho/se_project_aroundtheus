@@ -193,7 +193,7 @@ profileEditButton.addEventListener("click", () => {
 
 const addCardFormPopup = new PopupWithForm("#add-card-modal", (formData) => {
   setSubmitButtonText(addCreateButton, "Creating...");
-
+  console.log("going into API functions");
   api
     .addNewCard(formData)
     .then((formData) => {

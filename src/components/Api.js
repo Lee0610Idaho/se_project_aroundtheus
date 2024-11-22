@@ -37,20 +37,21 @@ export default class Api {
   }
 
   //Add new card to server
-  addNewCard(locationInfo) {
+  addNewCard({ name, link }) {
+    console.log(name);
+    console.log(link);
     return this._request(`${this.baseUrl}/cards`, {
       method: "POST",
       headers: this.headers,
       body: JSON.stringify({
-        name: `${locationInfo.name}`,
-        link: `${locationInfo.link}`,
+        name,
+        link,
       }),
     });
   }
 
   //removing card from server
   deleteCard(cardId) {
-    console.log("deleting card");
     return this._request(`${this.baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this.headers,

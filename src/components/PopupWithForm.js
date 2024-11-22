@@ -18,16 +18,18 @@ export default class PopupWithForm extends Popup {
     return inputsObject;
   }
 
+  _handleSubmit = () => {
+    this._handleFormSubmit(this._getInputValues());
+  };
+
   setEventListeners() {
     super.setEventListeners();
-    this._popupElement.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this._handleFormSubmit(this._getInputValues());
-    });
+    this._form.addEventListener("submit", this._handleSubmit);
   }
 
   close() {
     this._form.reset();
     super.close();
+    this._form.removeEventListener("submit", this._handleSubmit); //Prevent form from submitting twice
   }
 }
