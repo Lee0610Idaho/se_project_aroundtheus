@@ -113,9 +113,6 @@
 .modal__button-delete {
   width: 100%;
 }
-.modal__button-avatar {
-  margin: 68px 36px 36px 36px;
-}
 
 .modal__image-name {
   width: 291px;
@@ -175,13 +172,13 @@
     width: 26px;
     height: 26px;
     bottom: calc(100% + 13.62px);
-    left: calc(90%);
+    left: calc(100%);
   }
 
   /* Close button for image modal stays on corner of modal*/
   .modal__close-image {
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     bottom: calc(100% + 3px);
     left: calc(100% + 3px);
   }
@@ -200,5 +197,22 @@
     line-height: 16.94px;
     padding: 0;
     margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .modal__close {
+    width: 16px;
+    height: 16px;
+    bottom: calc(97% + 13.62px);
+    left: calc(99%);
+  }
+
+  /* Close button for image modal stays on corner of modal*/
+  .modal__close-image {
+    width: 16px;
+    height: 16px;
+    bottom: calc(100% + 3px);
+    left: calc(90% + 3px);
   }
 }
