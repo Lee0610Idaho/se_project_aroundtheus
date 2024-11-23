@@ -42,9 +42,7 @@ export default class Card {
 
   // Change the like icon based on its status
   _renderLikes() {
-    this._cardElement
-      .querySelector(".cards__like-button")
-      .classList.toggle("cards__like-button_active");
+    this._likeButton.classList.toggle("cards__like-button_active");
   }
 
   //Initial Heart Icon when loading page

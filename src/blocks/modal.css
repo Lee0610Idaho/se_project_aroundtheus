@@ -30,8 +30,8 @@
 }
 
 .modal__container-delete {
-  width: 430px;
-  height: 181px;
+  max-width: 430px;
+  max-height: 181px;
 }
 
 /* container specifically for image modal */
@@ -159,7 +159,6 @@
   }
 
   .modal__container-delete {
-    width: 83%;
     height: 120px;
   }
   .modal__heading {
@@ -171,7 +170,7 @@
   .modal__close {
     width: 26px;
     height: 26px;
-    bottom: calc(100% + 13.62px);
+    bottom: calc(95% + 13.62px);
     left: calc(100%);
   }
 
@@ -200,19 +199,39 @@
   }
 }
 
-@media screen and (max-width: 330px) {
-  .modal__close {
-    width: 16px;
-    height: 16px;
-    bottom: calc(97% + 13.62px);
-    left: calc(99%);
+@media screen and (max-width: 350px) {
+  .modal {
+    padding: 0;
   }
 
+  .modal__form {
+    margin-top: 40px;
+  }
+
+  .modal__container {
+    max-width: 282px;
+    max-height: 322px;
+  }
+  .modal__close {
+    width: 20px;
+    height: 20px;
+    bottom: calc(100% + 13.62px);
+    left: calc(93%);
+  }
+
+  .modal__container-delete {
+    max-width: 282px;
+    max-height: 322px;
+  }
+
+  .modal__button {
+    margin-top: 0;
+  }
   /* Close button for image modal stays on corner of modal*/
-  .modal__close-image {
+  /* .modal__close-image {
     width: 16px;
     height: 16px;
-    bottom: calc(100% + 3px);
-    left: calc(90% + 3px);
-  }
+    bottom: calc(100% + 13.62px);
+    left: calc(94%);
+  } */
 }

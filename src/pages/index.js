@@ -232,6 +232,8 @@ const avatarPopup = new PopupWithForm("#avatar-modal", (formData) => {
     })
     .then(() => {
       // Close the avatar popup
+      avatarForm.reset();
+      formValidators["avatar-form"].disableButton();
       avatarPopup.close();
     })
     .catch((err) => {
