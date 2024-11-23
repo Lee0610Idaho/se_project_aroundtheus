@@ -29,6 +29,15 @@
   box-sizing: border-box;
 }
 
+.modal__container-avatar {
+  max-height: 272px;
+}
+
+.modal__container-delete {
+  max-width: 430px;
+  max-height: 181px;
+}
+
 /* container specifically for image modal */
 .modal__card-container {
   margin: auto;
@@ -53,12 +62,25 @@
 }
 
 .modal__heading {
+  padding-bottom: 24px;
   color: #000;
   font-weight: 900;
   font-size: 24px;
   line-height: 29.05px;
   margin: 0;
   height: 23px;
+}
+
+.modal__heading-delete {
+  padding-bottom: 0;
+}
+
+/* For Delete Confirmation Modal */
+.modal__title {
+  font-size: 24px;
+  color: #000000;
+  font-weight: 900;
+  margin: 34px 36px 21px 36px;
 }
 
 .modal__form {
@@ -83,13 +105,23 @@
 }
 
 .modal__button {
-  /* margin-top: 18.26px; */
-  /* margin-bottom: 36.51px; */
-  margin-top: 45px;
-  line-height: 22px;
-  height: 50.15px;
-  background-color: #000;
-  color: #fff;
+  background: #000000;
+  border-radius: 2px;
+
+  height: 50px;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 48px;
+  border-style: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.modal__button-delete {
+  margin-top: 38px;
+  width: 100%;
 }
 
 .modal__image-name {
@@ -136,23 +168,27 @@
     padding: 22px;
   }
 
+  .modal__container-delete {
+    height: 181px;
+  }
   .modal__heading {
     font-size: 18px;
     line-height: 21.78px;
     font-weight: 900;
+    padding-bottom: 0;
   }
 
   .modal__close {
     width: 26px;
     height: 26px;
-    bottom: calc(100% + 13.62px);
-    left: calc(90%);
+    bottom: calc(95% + 13.62px);
+    left: calc(100%);
   }
 
   /* Close button for image modal stays on corner of modal*/
   .modal__close-image {
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     bottom: calc(100% + 3px);
     left: calc(100% + 3px);
   }
@@ -172,4 +208,44 @@
     padding: 0;
     margin-bottom: 0;
   }
+}
+
+@media screen and (max-width: 350px) {
+  .modal {
+    padding: 0;
+  }
+
+  .modal__form {
+    margin-top: 40px;
+  }
+
+  .modal__container {
+    max-width: 282px;
+    max-height: 322px;
+    padding: 25px;
+  }
+  .modal__heading {
+    padding-bottom: 0;
+  }
+  .modal__close {
+    width: 20px;
+    height: 20px;
+    bottom: calc(100% + 13.62px);
+    left: calc(93%);
+  }
+
+  .modal__button {
+    margin-top: 45px;
+  }
+
+  .modal__button-delete {
+    margin-top: 38px;
+  }
+  /* Close button for image modal stays on corner of modal*/
+  /* .modal__close-image {
+    width: 16px;
+    height: 16px;
+    bottom: calc(100% + 13.62px);
+    left: calc(94%);
+  } */
 }
