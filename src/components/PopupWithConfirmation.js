@@ -12,7 +12,6 @@ export default class PopupDelete extends Popup {
   }
 
   _handleDeleteEvent = () => {
-    this.preventDefault;
     this._handleDeleteAction();
   };
 
@@ -20,10 +19,5 @@ export default class PopupDelete extends Popup {
   setEventListeners() {
     this._confirmButton.addEventListener("click", this._handleDeleteEvent);
     super.setEventListeners();
-  }
-
-  // Close Popup
-  close() {
-    super.close();
   }
 }

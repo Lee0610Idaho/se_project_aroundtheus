@@ -7,7 +7,6 @@ export default class Card {
     this._name = data.name;
     this._link = data.link;
     this._cardId = data._id;
-    this._cardLikes = data.likes;
 
     // Find the card template
     this._cardSelector = cardSelector;
@@ -20,7 +19,6 @@ export default class Card {
 
   _setEventListeners() {
     // Add event listner for like button
-    this._likeButton = this._cardElement.querySelector(".cards__like-button");
     this._likeButton.addEventListener("click", this._handleLikeClick);
 
     // Add event listener for image
@@ -28,6 +26,8 @@ export default class Card {
     this._imageWindow.addEventListener("click", () =>
       this._handleImageClick({ link: this._link, name: this._name })
     );
+
+    this._deleteButton.addEventListener("click", this._handleDeleteClick);
   }
 
   //Check if the card is liked
@@ -36,12 +36,7 @@ export default class Card {
   }
 
   //Set the card to liked or not
-  setLikes(liked) {
-    if ((liked = true)) {
-      this._cardLikes = true;
-    } else {
-      this._cardLikes = false;
-    }
+  setLikes() {
     this._renderLikes();
   }
 
@@ -75,8 +70,6 @@ export default class Card {
     this._deleteButton = this._cardElement.querySelector(
       ".cards__delete-button"
     );
-
-    this._deleteButton.addEventListener("click", this._handleDeleteClick);
 
     this._likeButton = this._cardElement.querySelector(".cards__like-button");
     this._loadLike(active);

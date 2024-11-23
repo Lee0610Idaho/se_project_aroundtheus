@@ -38,8 +38,6 @@ export default class Api {
 
   //Add new card to server
   addNewCard({ name, link }) {
-    console.log(name);
-    console.log(link);
     return this._request(`${this.baseUrl}/cards`, {
       method: "POST",
       headers: this.headers,
@@ -73,7 +71,6 @@ export default class Api {
   }
 
   updateAvatar(pictureLink) {
-    console.log(pictureLink);
     return this._request(`${this.baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this.headers,
@@ -91,10 +88,6 @@ export default class Api {
 
   //ran for every request
   _request(url, options) {
-    return fetch(`${url}`, options)
-      .then(this._checkResponse)
-      .then((data) => {
-        return data;
-      });
+    return fetch(`${url}`, options).then(this._checkResponse);
   }
 }

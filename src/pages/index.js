@@ -73,7 +73,7 @@ function createCard(data, active) {
             .removeLike(data._id)
             .then((card) => {
               // Update like status
-              cardElement.setLikes(false);
+              cardElement.setLikes();
             })
             .catch((err) => {
               console.error(`Error: ${err.status}`);
@@ -82,7 +82,7 @@ function createCard(data, active) {
           api
             .addLike(data._id)
             .then((card) => {
-              cardElement.setLikes(true);
+              cardElement.setLikes();
             })
             .catch((err) => {
               console.error(`Error: ${err.status}`);
@@ -128,8 +128,6 @@ enableValidation(options);
 
 //Create Image Modal
 const imagePopup = new PopupWithImage("#card-image-modal");
-//initially closed
-imagePopup.close();
 
 //Create Delete Popup for Deleting a Card
 const deletePopup = new PopupWithConfirmation("#delete-modal");
@@ -182,18 +180,18 @@ const editFormPopup = new PopupWithForm("#profile-edit-modal", (values) => {
     });
 });
 
+editFormPopup.setEventListeners();
+
 profileEditButton.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
   profileTitleInput.value = userData.name;
   profileDescriptionInput.value = userData.job;
 
   editFormPopup.open();
-  editFormPopup.setEventListeners();
 });
 
 const addCardFormPopup = new PopupWithForm("#add-card-modal", (formData) => {
   setSubmitButtonText(addCreateButton, "Creating...");
-  console.log("going into API functions");
   api
     .addNewCard(formData)
     .then((formData) => {
@@ -201,6 +199,8 @@ const addCardFormPopup = new PopupWithForm("#add-card-modal", (formData) => {
       cardSection.addItem(newCard);
     })
     .then(() => {
+      addCardForm.reset();
+      formValidators["card-form"].disableButton();
       addCardFormPopup.close();
     })
 
@@ -210,14 +210,13 @@ const addCardFormPopup = new PopupWithForm("#add-card-modal", (formData) => {
     .finally(() => {
       setSubmitButtonText(addCreateButton, "Create");
     });
-  addCardForm.reset();
 });
+
+addCardFormPopup.setEventListeners();
 
 //Add Card Button Pressed
 addNewCardButton.addEventListener("click", function () {
-  formValidators["card-form"].disableButton();
   addCardFormPopup.open();
-  addCardFormPopup.setEventListeners();
 });
 
 const avatarPopup = new PopupWithForm("#avatar-modal", (formData) => {
@@ -245,10 +244,10 @@ const avatarPopup = new PopupWithForm("#avatar-modal", (formData) => {
     });
 });
 
+avatarPopup.setEventListeners();
 avatarEditButton.addEventListener("click", () => {
   // Open the avatar popup
   avatarPopup.open();
 
   // Set the event listeners for the avatar popup
-  avatarPopup.setEventListeners();
 });
