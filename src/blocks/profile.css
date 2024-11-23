@@ -11,7 +11,7 @@
   position: relative;
   width: 120px;
   height: 120px;
-  margin: 0 0 0 0;
+  margin: 0 29px 0 0;
 }
 
 .profile__image-overlay {
@@ -167,5 +167,11 @@
     margin-left: 0px;
     width: 18px;
     height: 18px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile__image-wrapper {
+    margin-left: 0 px;
   }
 }
